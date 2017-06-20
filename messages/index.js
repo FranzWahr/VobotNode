@@ -38,7 +38,7 @@ bot.dialog('/', [
                     " you've been programming for " + session.userData.coding + 
                     " years and use " + session.userData.language + ".");
     },
-    function (session, results) {
+    function (session) {
         builder.Prompts.choice(session, "Now do you want to learn something about building bots for educational pruposes?", ["yes", "no"]);
     },
     function (session, results) {
