@@ -63,11 +63,11 @@ bot.dialog('/', [
     },
      function (session, results) {
         session.userData.testAnswer = results.response.entity;
-        if(session.userData.testAnswer == "a"){
+        if(session.userData.testAnswer == "b"){
             session.send("Yes, that's the right answer! if you want to have mor information on bot design-principles, check this page: https://docs.microsoft.com/en-us/bot-framework/bot-design-principles")
         }
         else{
-            session.send("No tha's only yout opiunion and ...that was not correct. It is a)! If you want to know why you could check this site: https://docs.microsoft.com/en-us/bot-framework/bot-design-principles")
+            session.send("No that's only your opinion ...that was not correct. It is b)! If you want to know why you could check this site: https://docs.microsoft.com/en-us/bot-framework/bot-design-principles")
         }
      },
 ]);
