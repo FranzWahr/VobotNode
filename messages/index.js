@@ -55,11 +55,21 @@ bot.dialog('/', [
         
         if(session.userData.purpose=="educational"){
             session.send("That's great! An educational chatbot... ummmh well, i don't really know a lot about that.")//TODO
+            builder.Prompts.choice(session, "But ...Let's start with a quick test question. Whats the most important principle in bot-design : a) should seem to behave like a really human being, b) should offer a flawless and easy conversation c) should understand spoken language (just type the correct letter)", ["a", "b", "c"]);
         }
         if(session.userData.purpose=="business"){
             session.send("That's great! But I won't be really able to help you. Maybe you could have a look on this fancy website : https://chatbotsmagazine.com/whats-it-like-to-build-run-a-chatbot-business-751935913300 ... and also IBM Watson might be interesting for you! ")
         }
-    }   
+    },
+     function (session, results) {
+        session.userData.testAnswer = results.response.entity;
+        if(session.userData.testAnswer == "a"){
+            session.send("Yes, that's the right answer! if you want to have mor information on bot design-principles, check this page: https://docs.microsoft.com/en-us/bot-framework/bot-design-principles")
+        }
+        else{
+            session.send("No tha's only yout opiunion and ...that was not correct. It is a)! If you want to know why you could check this site: https://docs.microsoft.com/en-us/bot-framework/bot-design-principles")
+        }
+     },
 ]);
 
 if (useEmulator) {
