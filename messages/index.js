@@ -43,12 +43,12 @@ bot.dialog('/', [
         session.userData.willToLearn = results.response.entity;
         
         if(session.userData.willToLearn=="yes"){
-        session.send("Got it... so here is a first definition: a chatbot is a program and a communication medium, which isn't necessarily linked to AI but always has to be able of processing natural language in textual or spoken form, and normally should provide some benefit. I - as chatbot - am trying to help you to gain knowledge about a specific topic, i.e.: Building and using chatbots for educational purposes.");
+        session.send("Got it... so here is a first definition: a chatbot is a program and a communication medium, which isn't necessarily linked to AI but always has to be able of processing natural language in textual or spoken form, and normally should provide some benefit. I - as a chatbot - am trying to help you to gain knowledge about a specific topic, i.e.: Building and using chatbots for educational purposes.");
         builder.Prompts.choice(session, "Now you want to learn something about building bots... bot for which purpose?", ["educational", "business"]);
         }
-       /* else {
+        else {
             session.send("Got it, you don't want to learn");
-        }*/
+        }
     },
     function (session, results) {
         session.userData.purpose = results.response.entity;
@@ -57,7 +57,7 @@ bot.dialog('/', [
             session.send("That's great! An educational chatbot... ummmh well, i don't really know a lot about that.")//TODO
         }
         if(session.userData.purpose=="business"){
-            session.send("That's great! Bot I won't be really able to help you. Maybe you could have a look on this fancy website : https://chatbotsmagazine.com/whats-it-like-to-build-run-a-chatbot-business-751935913300 ... and also IBM Watson might be interesting for you! ")
+            session.send("That's great! But I won't be really able to help you. Maybe you could have a look on this fancy website : https://chatbotsmagazine.com/whats-it-like-to-build-run-a-chatbot-business-751935913300 ... and also IBM Watson might be interesting for you! ")
         }
     }   
 ]);
