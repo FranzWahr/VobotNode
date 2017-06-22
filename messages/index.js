@@ -71,7 +71,7 @@ bot.dialog('/', [
         }
         session.send("Give me the three most important concepts of chatbot!");
      },
-     function(session, results) {
+/*     function(session, results) {
      	session.userData.definitionAnswer = results.response;
      	var string definition1 = "medium";
      	var string definition2 = "program";
@@ -89,7 +89,7 @@ bot.dialog('/', [
      	else {
      		session.send("Uhm, unfortunately that was all wrong...")
 		}
-     }
+     }, */
 
 ]);
 
