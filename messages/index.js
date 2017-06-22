@@ -69,7 +69,7 @@ bot.dialog('/', [
         else{
             session.send("No that's only your opinion ...that was not correct. It is b)! If you want to know why you could check this site: https://docs.microsoft.com/en-us/bot-framework/bot-design-principles");
         }
-        builder.Prompts.text("Give me 3 core concepts of a chatbot!");
+        builder.Prompts.text(session, "Give me 3 core concepts of a chatbot!");
      },
      function(session, results) {
      	session.userData.definitionAnswer = results.response;
