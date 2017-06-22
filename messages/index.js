@@ -69,7 +69,28 @@ bot.dialog('/', [
         else{
             session.send("No that's only your opinion ...that was not correct. It is b)! If you want to know why you could check this site: https://docs.microsoft.com/en-us/bot-framework/bot-design-principles")
         }
+        session.send("Give me the three most important concepts of chatbot!");
      },
+     function(session, results) {
+     	session.userData.definitionAnswer = results.response;
+     	var string definition1 = "medium";
+     	var string definition2 = "program";
+     	var string definition3 = "natural language processing";
+     	var int rating = 0;
+     	if (results.response.indexOf(definition1 !== -1) rating++);
+     	if (results.response.indexOf(definition2 !== -1) rating++);
+     	if (results.response.indexOf(definition3 !== -1) rating++);
+     	if(result == 3){
+     		session.send("That's correct! There's not much I can still teach you!")
+     	}
+     	else if(result==1 || result==2) {
+     		session.send("You got some principles but you also missed some.")
+     	}
+     	else {
+     		session.send("Uhm, unfortunately that was all wrong...")
+		}
+     }
+
 ]);
 
 if (useEmulator) {
