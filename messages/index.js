@@ -80,10 +80,10 @@ bot.dialog('/', [
      	if (results.response.indexOf(definition1 !== -1)) rating++;
      	if (results.response.indexOf(definition2 !== -1)) rating++;
      	if (results.response.indexOf(definition3 !== -1)) rating++;
-     	if(result == 3){
+     	if(rating == 3){
      		session.send("That's correct! There's not much I can still teach you!");
      	}
-     	else if(result==1 || result==2) {
+     	else if(rating==1 || rating==2) {
      		session.send("You got some principles but you also missed some.");
      	}
      	else {
