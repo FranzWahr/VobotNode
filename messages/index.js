@@ -22,13 +22,13 @@ bot.localePath(path.join(__dirname, './locale'));
 
 bot.dialog('/', [
     function (session) {
-        builder.Prompts.text(session, "HeyHo, Hello!... What's your name?");
+        builder.Prompts.text(session, "NEWHey!... What's your name?");
     },
     function (session, results) {
         session.userData.name = results.response;
-        builder.Prompts.number(session, "Hi " + results.response + ". I hope you would like to learn something about building bots? How many years have you been coding?"); 
+        builder.Prompts.text(session, "Hi " + results.response + ". I hope you would like to learn something about building bots?"); 
     },
-    function (session, results) {
+    /*function (session, results) {
         session.userData.coding = results.response;
         builder.Prompts.choice(session, "What language have you used for coding before?", ["Java", "JavaScript", "TypeScript", "C#"]);
     },
@@ -38,9 +38,9 @@ bot.dialog('/', [
                     " you've been programming for " + session.userData.coding + 
                     " years and use " + session.userData.language + ".");
         builder.Prompts.choice(session, "Now do you want to learn something about building bots?", ["yes", "no"]);
-    },    
+    },*/    
     function (session, results) {
-        session.userData.willToLearn = results.response.entity;
+        session.userData.willToLearn = results.response;
         
         if(session.userData.willToLearn=="yes"){
         session.send("Got it... so here is a first definition: a chatbot is a program and a communication medium, which isn't necessarily linked to AI but always has to be able of processing natural language in textual or spoken form, and normally should provide some benefit. I - as a chatbot - am trying to help you to gain knowledge about a specific topic, i.e.: Building and using chatbots for educational purposes.");
@@ -69,6 +69,7 @@ bot.dialog('/', [
         else{
             session.send("No that's only your opinion ...that was not correct. It is b)! If you want to know why you could check this site: https://docs.microsoft.com/en-us/bot-framework/bot-design-principles")
         }
+        builder.Prompts.text("Give me 3 core concepts of a chatbot!")
      },
      function(session, results) {
      	session.userData.definitionAnswer = results.response;
