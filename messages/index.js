@@ -26,7 +26,7 @@ bot.dialog('/', [
     },
     function (session, results) {
         session.userData.name = results.response;
-        builder.Prompts.text(session, "Hi " + results.response + ". I hope you would like to learn something about building bots?"); 
+        builder.Prompts.choice(session, "Hi " + results.response + ". I hope you would like to learn something about building bots?", ["yes", "no"]); 
     },
     /*function (session, results) {
         session.userData.coding = results.response;
@@ -40,13 +40,13 @@ bot.dialog('/', [
         builder.Prompts.choice(session, "Now do you want to learn something about building bots?", ["yes", "no"]);
     },*/    
     function (session, results) {
-        session.userData.willToLearn = results.response;
+        session.userData.willToLearn = results.response.entity;
         
         if(session.userData.willToLearn=="yes"){
         session.send("Got it... so here is a first definition: a chatbot is a program and a communication medium, which isn't necessarily linked to AI but always has to be able of processing natural language in textual or spoken form, and normally should provide some benefit. I - as a chatbot - am trying to help you to gain knowledge about a specific topic, i.e.: Building and using chatbots for educational purposes.");
         builder.Prompts.choice(session, "Now you want to learn something about building bots... bot for which purpose?", ["educational", "business"]);
         }
-        else {
+        if (session.userData.willToLearn=="no") {
             session.send("Got it, you don't want to learn");
         }
     },
