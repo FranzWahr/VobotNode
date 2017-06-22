@@ -64,12 +64,12 @@ bot.dialog('/', [
      function (session, results) {
         session.userData.testAnswer = results.response.entity;
         if(session.userData.testAnswer == "b"){
-            session.send("Yes, that's the right answer! if you want to have mor information on bot design-principles, check this page: https://docs.microsoft.com/en-us/bot-framework/bot-design-principles")
+            session.send("Yes, that's the right answer! if you want to have more information on bot design-principles, check this page: https://docs.microsoft.com/en-us/bot-framework/bot-design-principles");
         }
         else{
-            session.send("No that's only your opinion ...that was not correct. It is b)! If you want to know why you could check this site: https://docs.microsoft.com/en-us/bot-framework/bot-design-principles")
+            session.send("No that's only your opinion ...that was not correct. It is b)! If you want to know why you could check this site: https://docs.microsoft.com/en-us/bot-framework/bot-design-principles");
         }
-        builder.Prompts.text("Give me 3 core concepts of a chatbot!")
+        builder.Prompts.text("Give me 3 core concepts of a chatbot!");
      },
      function(session, results) {
      	session.userData.definitionAnswer = results.response;
@@ -81,13 +81,13 @@ bot.dialog('/', [
      	if (results.response.indexOf(definition2 !== -1)) rating++;
      	if (results.response.indexOf(definition3 !== -1)) rating++;
      	if(result == 3){
-     		session.send("That's correct! There's not much I can still teach you!")
+     		session.send("That's correct! There's not much I can still teach you!");
      	}
      	else if(result==1 || result==2) {
-     		session.send("You got some principles but you also missed some.")
+     		session.send("You got some principles but you also missed some.");
      	}
      	else {
-     		session.send("Uhm, unfortunately that was all wrong...")
+     		session.send("Uhm, unfortunately that was all wrong...");
 		}
      }, 
 ]);
