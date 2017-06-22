@@ -77,9 +77,9 @@ bot.dialog('/', [
      	var definition2 = "program";
      	var definition3 = "natural language processing";
      	var rating = 0;
-     	if (results.response.indexOf(definition1 !== -1)) rating++;
-     	if (results.response.indexOf(definition2 !== -1)) rating++;
-     	if (results.response.indexOf(definition3 !== -1)) rating++;
+     	if (results.response.indexOf(definition1)!== -1) rating++;
+     	if (results.response.indexOf(definition2) !== -1) rating++;
+     	if (results.response.indexOf(definition3) !== -1) rating++;
      	if(rating == 3){
      		session.send("That's correct! There's not much I can still teach you!");
      	}
